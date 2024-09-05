@@ -1,0 +1,69 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  # The most common configuration options are documented and commented belo>
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Use a Windows 10 base box
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://vagrantcloud.com/search.
+  config.vm.box = "sloopstash/windows-10"
+  config.vm.box_version = "1.1.1"  # Use the latest stable version
+
+  # Define the virtual machine name.
+  config.vm.define "sloopstash-windows-10-desktop"
+
+  # Set the virtual machine hostname.
+  config.vm.hostname = "sloopstash-windows-10-desktop"
+
+  # Disable automatic box update checking. If you disable this, then
+  # boxes will only be checked for updates when the user runs
+  # `vagrant box outdated`. This is not recommended.
+  config.vm.box_check_update = false
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine. In the example belo>  # accessing "localhost:8080" will access port 80 on the guest machine.
+  # NOTE: This will enable public access to the opened port
+  # config.vm.network "forwarded_port", guest: 443, host: 443, auto_correct>
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine and only allow access  # via 127.0.0.1 to disable public access
+  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "12>
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  config.vm.network "private_network", ip: "192.168.101.1"
+
+  # Disable the synced folder, as in the original file
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  # Set up SSH-like access via WinRM (used for Windows VMs instead of SSH)
+  config.vm.communicator = "winrm"
+  config.winrm.username = "vagrant"
+  config.winrm.password = "vagrant"
+
+  # Configure the VirtualBox provider with settings specific to Windows
+  config.vm.provider "virtualbox" do |vb|
+    # Disable the GUI when booting the virtual machine
+    vb.gui = true
+
+    # Allocate memory and CPUs to the virtual machine
+    vb.memory = "2048"
+    vb.cpus = 2
+   # Set name for the virtual machine.
+    vb.name = "sloopstash-windows-10-desktop"
+   # set the screen resolution
+  vb.customize ["modifyvm", :id, "--vram", "128"]
+  vb.customize ["setextradata", :id, "CustomVideoModel", "1920x1080x30"]
+  vb.customize ["modifyvm", :id, "--graphicscontroller","vboxsvga"]
+
+  end
+  
+  
+end
