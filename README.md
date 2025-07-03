@@ -1,9 +1,8 @@
-# Kickstart Windows
-Automate deployment of a variety of Windows VMs on Windows, Mac, and Linux operating systems using VirtualBox, VMware, and Vagrant.
+# SloopStash Windows starter-kit
 
 
 ## Getting started
-Please refer to the [wiki](https://github.com/sloopstash/kickstart-windows/wiki) for detailed instructions on how to get started with our Windows starter-kit.
+Please refer to the [documentation](https://sloopstash.com/documentation/toolkit/vm/windows/index.html) for detailed instructions on how to get started with SloopStash Windows starter-kit.
 
 
 ## Get support
