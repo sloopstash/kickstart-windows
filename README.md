@@ -1,8 +1,8 @@
-# SloopStash Windows starter-kit
+# SloopStash Windows kit
 
 
 ## Getting started
-Please refer to the [documentation](https://sloopstash.com/documentation/toolkit/vm/windows/index.html) for detailed instructions on how to get started with SloopStash Windows starter-kit.
+Please refer to the [documentation](https://sloopstash.com/documentation/toolkit/vm/windows/index.html) for detailed instructions on how to get started with SloopStash Windows kit.
 
 
 ## Get support
